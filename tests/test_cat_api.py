@@ -3,7 +3,7 @@ import unittest
 from utils.cat_api import CatAPI
 
 
-class CatAPITest(unittest.TestCase):
+class TestCatAPI(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -17,28 +17,23 @@ class CatAPITest(unittest.TestCase):
         self.json_post_vote_response = self.post_vote_response.json()
         self.post_vote_response_id = self.json_post_vote_response['id']
 
-    def test_one(self):
+    def test_cat_api_1(self):
         self.assertEqual(self.get_votes_response.status_code, 200, '')
 
-    def test_two(self):
+    def test_cat_api_2(self):
         self.assertGreater(len(self.get_votes_response.content), 0, '')
 
-    def test_three(self):
+    def test_cat_api_3(self):
         self.assertEqual(self.get_vote_response.status_code, 200, '')
 
-    def test_four(self):
+    def test_cat_api_4(self):
         self.assertGreater(len(self.get_vote_response.text), 0, '')
 
-    def test_five(self):
-        self.assertEqual(self.post_vote_response.status_code, 200, '')
+    def test_cat_api_5(self):
+        self.assertEqual(self.post_vote_response.status_code, 201, '')
 
-    def test_six(self):
+    def test_cat_api_6(self):
         self.assertNotEqual(self.post_vote_response_id, 0, '')
 
-    def test_seven(self):
+    def test_cat_api_7(self):
         self.assertEqual(self.json_post_vote_response['message'], 'SUCCESS', '')
-
-
-if __name__ == '__main__':
-    test_suite = unittest.TestLoader().loadTestsFromTestCase(CatAPITest)
-    unittest.TextTestRunner(verbosity=2).run(test_suite)
