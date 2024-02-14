@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Start Cat API tests') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                ./venv/bin/pip3 install -r requirements.txt
+                ./venv/bin/python3 start.py cat-api-tests
+                '''
+            }
+        }
+    }
+    post {
+        always {
+            deleteDir()
+        }
+    }
+}

@@ -2,11 +2,13 @@ version: '3.7'
 
 services:
   jenkins:
-    image: jenkins/jenkins
+    build: .
     container_name: jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
+    environment:
+      - GIT_SSH_COMMAND=ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
     volumes:
       - jenkins_data:/var/jenkins_home
 
