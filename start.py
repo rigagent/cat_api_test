@@ -7,7 +7,7 @@ from tests.test_cat_api import TestCatAPI
 
 
 app = typer.Typer(add_completion=False)
-report_dir = 'test_results'
+report_dir = 'allure-results'
 
 
 @app.command()

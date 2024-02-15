@@ -110,7 +110,7 @@ ENV/
 env.bak/
 venv.bak/
 .idea/
-test_results/
+allure-report/
 allure-results/
 
 # Spyder project settings
