@@ -12,16 +12,17 @@ pipeline {
         }
     }
     post {
-    always {
-        allure([
-            includeProperties: false,
-            jdk: '',
-            properties: [],
-            reportBuildPolicy: 'ALWAYS',
-            results: [[path: 'allure-results']]
-        ]) {
-            allureInstallation('allure')
+        always {
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'allure-results']]
+            ]) {
+                allureInstallation('allure')
+            }
+            deleteDir()
         }
-        deleteDir()
     }
 }
