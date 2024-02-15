@@ -21,6 +21,11 @@ pipeline {
                 results: [[path: 'allure-results']]
             ]) {
                 allureInstallation('allure')
+                options([
+                    allure: [
+                        reportDir: 'allure-report'
+                    ]
+                ])
             }
             deleteDir()
         }
