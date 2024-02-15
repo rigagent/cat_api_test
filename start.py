@@ -3,7 +3,7 @@ import sys
 import typer
 import unittest
 import xmlrunner
-# from xmlrunner.extra.xunit_plugin import transform
+from xmlrunner.extra.xunit_plugin import transform
 from tests.test_cat_api import TestCatAPI
 
 
@@ -26,13 +26,13 @@ def cat_api_tests():
     if not test_result_cat_api.wasSuccessful():
         failed_test_results = True
 
-    # xml_files = [xml_file for xml_file in os.listdir(report_dir) if xml_file.endswith('.xml')]
-    #
-    # for xml_file in xml_files:
-    #     with open(f'{report_dir}/{xml_file}', 'rb') as f:
-    #         xml_text = f.read()
-    #     with open(f'{report_dir}/{xml_file}', 'wb') as report:
-    #         report.write(transform(xml_text))
+    xml_files = [xml_file for xml_file in os.listdir(report_dir) if xml_file.endswith('.xml')]
+
+    for xml_file in xml_files:
+        with open(f'{report_dir}/{xml_file}', 'rb') as f:
+            xml_text = f.read()
+        with open(f'{report_dir}/{xml_file}', 'wb') as report:
+            report.write(transform(xml_text))
 
     if failed_test_results:
         sys.exit(1)
