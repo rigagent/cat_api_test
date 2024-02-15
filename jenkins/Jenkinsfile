@@ -12,22 +12,6 @@ pipeline {
         }
     }
     post {
-        always {
-            allure([
-                includeProperties: false,
-                jdk: '',
-                properties: [],
-                reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'allure-results']]
-            ]) {
-                allureInstallation('allure')
-                options([
-                    allure: [
-                        reportDir: 'allure-report'
-                    ]
-                ])
-            }
-            deleteDir()
-        }
+        deleteDir()
     }
 }
