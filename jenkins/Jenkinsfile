@@ -19,7 +19,9 @@ pipeline {
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
                 results: [[path: 'allure-results']]
-            ])
+            ]) {
+                allureInstallation('allure_cmd')
+            }
             deleteDir()
         }
     }
